@@ -20,7 +20,7 @@ namespace KeyAuth_Seller_Tools
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            APIKeyTB.Text = Properties.Settings.Default.APIKey;
         }
 
         private void HasherBTN_Click(object sender, EventArgs e)

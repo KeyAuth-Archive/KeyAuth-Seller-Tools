@@ -118,7 +118,7 @@
             this.ViewsPNL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ViewsPNL.Location = new System.Drawing.Point(0, 66);
             this.ViewsPNL.Name = "ViewsPNL";
-            this.ViewsPNL.Size = new System.Drawing.Size(279, 358);
+            this.ViewsPNL.Size = new System.Drawing.Size(279, 318);
             this.ViewsPNL.TabIndex = 1;
             // 
             // BottomPNL
@@ -126,7 +126,7 @@
             this.BottomPNL.Controls.Add(this.StatusLB);
             this.BottomPNL.Controls.Add(this.label2);
             this.BottomPNL.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPNL.Location = new System.Drawing.Point(0, 424);
+            this.BottomPNL.Location = new System.Drawing.Point(0, 384);
             this.BottomPNL.Name = "BottomPNL";
             this.BottomPNL.Padding = new System.Windows.Forms.Padding(5);
             this.BottomPNL.Size = new System.Drawing.Size(279, 26);
@@ -159,7 +159,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(188)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(279, 450);
+            this.ClientSize = new System.Drawing.Size(279, 410);
             this.Controls.Add(this.ViewsPNL);
             this.Controls.Add(this.BottomPNL);
             this.Controls.Add(this.TopPNL);
