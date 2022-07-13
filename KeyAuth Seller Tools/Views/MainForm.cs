@@ -1,9 +1,11 @@
 using KeyAuth_Seller_Tools.Views;
+using KeyAuthSeller;
 
 namespace KeyAuth_Seller_Tools
 {
     public partial class MainForm : Form
     {
+        public static SellerApi sellerApi = new();
         public MainForm()
         {
             InitializeComponent();
@@ -12,22 +14,56 @@ namespace KeyAuth_Seller_Tools
         private void LicenseViewBTN_Click(object sender, EventArgs e)
         {
             ViewsPNL.Controls.Clear();
-            LicenseView licenseView = new LicenseView();
+            LicenseView licenseView = new();
             ViewsPNL.Controls.Add(licenseView);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ViewsPNL.Controls.Clear();
-            LicenseView licenseView = new LicenseView();
-            ViewsPNL.Controls.Add(licenseView);
+
         }
 
         private void HasherBTN_Click(object sender, EventArgs e)
         {
             ViewsPNL.Controls.Clear();
-            HasherView hasherView = new HasherView();
+            HasherView hasherView = new();
             ViewsPNL.Controls.Add(hasherView);
+        }
+
+        private void APIKeyTB_TextChanged(object sender, EventArgs e)
+        {
+            if (APIKeyTB.Text.Length == 32)
+            {
+                StatusLB.Text = "Connecting.";
+                StatusLB.ForeColor = Color.Blue;
+                sellerApi.SetSellerKey(APIKeyTB.Text);
+                if (sellerApi.response.Success)
+                {
+                    StatusLB.Text = "Connected.";
+                    StatusLB.ForeColor = Color.Green;
+                    ViewsPNL.Controls.Clear();
+                    LicenseView licenseView = new();
+                    ViewsPNL.Controls.Add(licenseView);
+                    LicenseViewBTN.Enabled = true;
+                    HasherBTN.Enabled = true;
+                }
+                else
+                {
+                    StatusLB.Text = "Not Connected.";
+                    StatusLB.ForeColor = Color.Red;
+                    ViewsPNL.Controls.Clear();
+                    LicenseViewBTN.Enabled = false;
+                    HasherBTN.Enabled = false;
+                }
+            }
+            else
+            {
+                StatusLB.Text = "Not Connected.";
+                StatusLB.ForeColor = Color.Red;
+                ViewsPNL.Controls.Clear();
+                LicenseViewBTN.Enabled = false;
+                HasherBTN.Enabled = false;
+            }
         }
     }
 }
